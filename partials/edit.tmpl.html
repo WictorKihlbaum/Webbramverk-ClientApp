@@ -1,0 +1,145 @@
+<!-- HTML-Template for Edit Event -->
+
+<md-dialog aria-label="Edit event"
+           id="event-edit-dialog"
+           ng-cloak>
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Edit event</h2>
+            <span flex></span>
+            <!-- Close button for dialog -->
+            <md-button class="md-icon-button"
+                       ng-click="event.closeEventDialog()">
+
+                <md-icon md-svg-src="assets/img/close.svg"
+                         aria-label="Close event dialog"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content layout="column"
+                       layout-align="center center">
+
+        <!-- Edit form -->
+        <form name="eventForm">
+
+            <!-- Category input field -->
+            <md-input-container>
+                <label>Category</label>
+
+                <input type="text"
+                       required
+                       name="categoryField"
+                       aria-label="Edit event category"
+                       ng-model="event.category"
+                       md-maxlength="25" />
+
+                <!-- Category error messages -->
+                <div ng-messages="eventForm.categoryField.$error">
+                    <div ng-message="required">
+                        * Category is required.
+                    </div>
+                    <div ng-message="md-maxlength">
+                        * Category is to long. Max length is 25 chars.
+                    </div>
+                </div>
+            </md-input-container>
+
+            <!-- Description input field -->
+            <md-input-container>
+                <label>Description</label>
+                <input type="text"
+                       required
+                       name="descriptionField"
+                       aria-label="Edit event description"
+                       ng-model="event.description"
+                       md-maxlength="100" />
+
+                <!-- Description error messages -->
+                <div ng-messages="eventForm.descriptionField.$error">
+                    <div ng-message="required">
+                        * Description is required.
+                    </div>
+                    <div ng-message="md-maxlength">
+                        * Description is to long. Max length is 100 chars.
+                    </div>
+                </div>
+            </md-input-container>
+
+            <!-- Choose position input method -->
+            <md-radio-group ng-model="positionOption">
+                <md-radio-button value="Address">
+                    Address
+                </md-radio-button>
+                <md-radio-button value="Coordinates">
+                    Latitude & Longitude
+                </md-radio-button>
+            </md-radio-group>
+
+            <!-- Address input field -->
+            <md-input-container ng-if="positionOption =='Address'">
+                <label>Address</label>
+                <input type="text"
+                       required
+                       name="addressField"
+                       aria-label="Fill in address"
+                       ng-model="event.address" />
+
+                <!-- Address error messages -->
+                <div ng-messages="eventForm.addressField.$error">
+                    <div ng-message="required">
+                        * Address is required.
+                    </div>
+                </div>
+            </md-input-container>
+
+            <!-- Coordinates (latitude & longitude) input fields -->
+            <div id="coordinates" ng-if="positionOption == 'Coordinates'">
+                <!-- Latitude input field -->
+                <md-input-container>
+                    <label>Latitude</label>
+                    <input type="number"
+                           required
+                           name="latitudeField"
+                           aria-label="Fill in latitude"
+                           ng-model="event.latitude" />
+
+                    <!-- Latitude error messages -->
+                    <div ng-messages="eventForm.latitudeField.$error">
+                        <div ng-message="required">
+                            * Latitude is required.
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <!-- Longitude input field -->
+                <md-input-container>
+                    <label>Longitude</label>
+                    <input type="number"
+                           required
+                           name="longitudeField"
+                           aria-label="Fill in longitude"
+                           ng-model="event.longitude" />
+
+                    <!-- Longitude error messages -->
+                    <div ng-messages="eventForm.longitudeField.$error">
+                        <div ng-message="required">
+                            * Longitude is required.
+                        </div>
+                    </div>
+                </md-input-container>
+            </div>
+
+            <div>
+                <!-- Save button -->
+                <md-button class="md-raised md-primary"
+                           ng-click="event.editEvent()"
+                           type="submit">Save</md-button>
+            </div>
+
+        </form>
+
+    </md-dialog-content>
+
+</md-dialog>

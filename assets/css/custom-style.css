@@ -1,0 +1,177 @@
+html {
+    background-color: #89C4F4;
+}
+
+body {
+    background-color: #89C4F4;
+}
+
+#toolbar-menu {
+    padding: 20px;
+}
+
+#toolbar-header {
+    margin: 0;
+}
+
+.topic {
+    color: aqua;
+}
+
+#search-methods-topic {
+    margin: 0;
+}
+
+#param-search-topic {
+    margin-bottom: 20px;
+}
+
+h4 {
+    margin: 15px 0;
+}
+
+section {
+    margin-top: 15px;
+}
+
+#main-container {
+    margin: 0 auto;
+    max-width: 960px;
+}
+
+input[type="email"],
+input[type="password"] {
+    height: 55px;
+    border-radius: 10px;
+    padding: 0 15px;
+}
+
+#login-button,
+#logout-button {
+    margin: 0;
+    padding: 3px 15px;
+}
+
+#login-form {
+    background-color: white;
+    text-align: center;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+#main-map {
+    margin-top: 10px;
+    max-height: 450px;
+}
+
+#search-field {
+    background-color: aqua;
+}
+
+md-dialog-content {
+    padding: 15px 35px;
+}
+
+.search-methods {
+    background-color: white;
+    padding: 20px !important;
+    margin-bottom: 15px;
+}
+
+#sort-events-radiogroup {
+    margin-right: 10px;
+}
+
+#tags-radiogroup {
+    margin-top: 15px;
+}
+
+#sort-span {
+    margin-right: 5px;
+}
+
+.help-icon {
+    cursor: pointer;
+}
+
+.help-info-section {
+    max-width: 550px;
+}
+
+#events-time-panel {
+    background-color: white;
+    padding: 10px;
+}
+
+#events-list-panel {
+    background-color: white;
+    /*margin-top: 10px;*/
+    padding: 10px;
+}
+
+#create-event-button {
+    margin: 0;
+}
+
+md-input-container {
+    display: block;
+    width: 100%;
+}
+
+#event-edit-dialog {
+    width: 560px;
+}
+
+#search-method-input {
+    width: 300px;
+}
+
+#login-dialog {
+    width: 400px;
+}
+
+/* ----- Toasts ----- */
+
+md-toast {
+    left: calc(50vw - 150px);
+}
+
+md-toast.md-success-toast-theme .md-toast-content {
+    background-color: #C8F7C5;
+    color: #26A65B;
+}
+
+md-toast.md-notify-toast-theme .md-toast-content {
+    background-color: #FDE3A7;
+    color: #F39C12;
+}
+
+md-toast.md-error-toast-theme .md-toast-content {
+    background-color: #F1A9A0;
+    color: #D64541;
+}
+
+/* ----- Google Map ----- */
+
+.map-custom-marker {
+    width: 25px;
+}
+
+.map-custom-marker:hover {
+    cursor: pointer;
+}
+
+/* ----- Event list ----- */
+
+md-list-item:nth-child(odd) {
+    background-color: #E4F1FE;
+}
+
+md-list-item:nth-child(even) {
+    background-color: white;
+}
+
+
+/*.error-container {
+    padding: 15px 0;
+}*/

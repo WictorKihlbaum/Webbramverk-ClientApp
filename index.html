@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <base href="/ClientApp/index.html">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Client Event Application</title>
+        <link rel="stylesheet" href="assets/css/custom-style.css">
+        <!-- Angular Material CSS -->
+        <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+        <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+        <!-- AngularJS Libraries -->
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-resource.min.js"></script>
+        <!-- AngularJS Material Library -->
+        <script src="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+
+        <script src="https://maps.google.com/maps/api/js"></script>
+        <script src="assets/js/ng-map.min.js"></script>
+
+        <script src="assets/js/moment.min.js"></script>
+        <script src="assets/js/angular-moment.min.js"></script>
+
+        <script src="app.js"></script>
+
+        <script src="directives/CurrentTime.js"></script>
+
+        <script src="services/userService.js"></script>
+        <script src="services/authService.js"></script>
+        <script src="services/EventService.js"></script>
+
+        <script src="controllers/LoginCtrl.js"></script>
+        <script src="controllers/EventCtrl.js"></script>
+    </head>
+    <body ng-app="app">
+
+        <!-- Header/Menu -->
+        <div ng-include src="'partials/shared/menu.html'"></div>
+
+        <!-- Main View -->
+        <div id="main-container" ng-view></div>
+
+    </body>
+</html>

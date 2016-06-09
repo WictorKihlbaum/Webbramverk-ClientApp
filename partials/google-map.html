@@ -1,0 +1,20 @@
+<!-- GOOGLE MAP -->
+
+<ng-map center="sweden"
+        zoom="5"
+        id="main-map">
+
+    <custom-marker ng-repeat="e in events"
+                   on-click="showEventFromMap(e)"
+                   position="{{e.position.address}}">
+
+        <img src="assets/img/map-marker.png"
+             class="map-custom-marker" />
+
+        <!-- Shown when hover over marker -->
+        <md-tooltip md-direction="top">
+            {{e.category}} (Click to open info)
+        </md-tooltip>
+    </custom-marker>
+
+</ng-map>

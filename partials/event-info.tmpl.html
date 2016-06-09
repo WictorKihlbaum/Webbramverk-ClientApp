@@ -1,0 +1,68 @@
+<!-- HTML-Template for Event info -->
+
+<md-dialog aria-label="Event info" ng-cloak>
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Event info</h2>
+            <span flex></span>
+            <!-- Close button for dialog -->
+            <md-button class="md-icon-button" ng-click="event.closeEventDialog()">
+                <md-icon md-svg-src="assets/img/close.svg" aria-label="Close event dialog"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <!-- Event info details -->
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <h2>{{event.event.category}}</h2>
+
+            <section>
+                <h4>Description</h4>
+                {{event.event.description}}
+            </section>
+
+            <section>
+                <h4>Tags ({{event.event.tags.length}})</h4>
+                <span ng-repeat="tag in event.event.tags"
+                      ng-if="event.event.tags.length > 0">
+                    #{{tag.name}}
+                </span>
+                <span ng-if="event.event.tags.length == 0">
+                    This event has no tags.
+                </span>
+            </section>
+
+            <section>
+                <h4>Location</h4>
+                {{event.event.position.address}}
+            </section>
+
+            <section>
+                <h4>Created by</h4>
+                {{event.event.creator.name}}
+            </section>
+
+            <section>
+                <h4>Created</h4>
+                {{
+                    event.event.created_at |
+                    amUtcOffset:'+0200' |
+                    amDateFormat:'DD/MM/YYYY (HH:mm)'
+                }}
+            </section>
+
+            <section>
+                <h4>Updated</h4>
+                {{
+                    event.event.updated_at |
+                    amUtcOffset:'+0200' |
+                    amDateFormat:'DD/MM/YYYY (HH:mm)'
+                }}
+            </section>
+
+        </div>
+    </md-dialog-content>
+
+</md-dialog>

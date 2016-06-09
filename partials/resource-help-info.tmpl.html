@@ -1,0 +1,67 @@
+<!-- HTML-Template for Resource help info -->
+
+<md-dialog aria-label="Resource help info" ng-cloak>
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Help info</h2>
+            <span flex></span>
+            <!-- Close button for dialog -->
+            <md-button class="md-icon-button"
+                       ng-click="event.closeEventDialog()">
+
+                <md-icon md-svg-src="assets/img/close.svg"
+                         aria-label="Close event dialog"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <!-- Help info details -->
+    <md-dialog-content>
+        <div class="md-dialog-content">
+
+            <section class="help-info-section">
+                To be able to handle the different resources
+                you have to be logged in. Otherwise you will
+                only be able to show the events info.
+            </section>
+
+            <section class="help-info-section">
+                When you are logged in a couple of buttons will be
+                available for each event in the list. Below is a
+                short explanation what each of these buttons do.
+            </section>
+
+            <section class="help-info-section">
+
+                <section>
+                    <md-icon class="md-secondary"
+                             aria-label="Show event icon"
+                             md-svg-icon="infoIcon">
+                    </md-icon>
+                    = Opens a window with details about the event.
+                </section>
+
+                <section>
+                    <md-icon class="md-secondary"
+                             aria-label="Edit event icon"
+                             md-svg-icon="editIcon">
+                    </md-icon>
+                    = Opens a window where you can edit the event.
+                </section>
+
+
+                <section>
+                    <md-icon class="md-secondary"
+                             aria-label="Delete event icon"
+                             md-svg-icon="deleteIcon">
+                    </md-icon>
+                    = Opens a confirmation window asking if event should be deleted.
+                </section>
+
+            </section>
+
+        </div>
+    </md-dialog-content>
+
+</md-dialog>

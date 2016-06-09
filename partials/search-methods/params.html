@@ -1,0 +1,86 @@
+<!-- SEARCH EVENTS BY PARAMS -->
+
+<div id="search-by-params"
+     class="search-methods" flex>
+
+    <h4 id="param-search-topic">
+        Choose the parameter(s) you want to include in your search
+    </h4>
+
+    <!-- Checkboxes for Params -->
+    <div>
+        <md-checkbox ng-model="creatorCB"
+                     aria-label="Creator checkbox">
+            Creator
+        </md-checkbox>
+
+        <md-checkbox ng-model="categoryCB"
+                     aria-label="Category checkbox">
+            Category
+        </md-checkbox>
+
+        <md-checkbox ng-model="locationCB"
+                     aria-label="Location checkbox">
+            Location
+        </md-checkbox>
+    </div>
+
+
+    <!-- Creator Param Dropdownlist -->
+    <md-input-container ng-if="creatorCB"
+                        class="md-block" flex-gt-sm>
+
+        <label>Creator</label>
+
+        <md-select ng-model="event.creatorParam"
+                   placeholder="Select a creator">
+
+            <md-option ng-repeat="creator in creators"
+                       value="{{creator.id}}">
+                {{creator.name}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+
+
+    <!-- Category Param Dropdownlist -->
+    <md-input-container ng-if="categoryCB"
+                        class="md-block" flex-gt-sm>
+
+        <label>Category</label>
+
+        <md-select ng-model="event.categoryParam"
+                   placeholder="Select a category">
+
+            <md-option ng-repeat="category in categories"
+                       value="{{category}}">
+                {{category}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+
+
+    <!-- Position Param Dropdownlist-->
+    <md-input-container ng-if="locationCB"
+                        class="md-block" flex-gt-sm>
+
+        <label>Location</label>
+
+        <md-select ng-model="event.positionParam"
+                   placeholder="Select an address">
+
+            <md-option ng-repeat="position in positions"
+                       value="{{position.id}}">
+                {{position.address}}
+            </md-option>
+
+        </md-select>
+    </md-input-container>
+
+    <!-- Search button -->
+    <md-button class="md-raised md-primary"
+               ng-click="event.getEventsByParams()">
+        Search
+    </md-button>
+
+</div>

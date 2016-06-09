@@ -1,0 +1,68 @@
+<!-- HTML-Template for Login -->
+
+<md-dialog id="login-dialog">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Login user</h2>
+            <span flex></span>
+
+            <!-- Close button for dialog -->
+            <md-button class="md-icon-button"
+                       ng-click="login.closeLoginDialog()">
+
+                <md-icon md-svg-src="assets/img/close.svg"
+                         aria-label="Close dialog"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content layout="column"
+                       layout-align="center center">
+
+        <!-- Login form -->
+        <form name="loginForm"
+              id="login-form"
+              layout-align="center"
+              class="md-raised">
+
+            <!-- Email input field -->
+            <md-input-container>
+                <label>Email</label>
+                <input type="email" required
+                       name="emailField"
+                       ng-model="login.email" />
+
+                <!-- Email error messages -->
+                <div ng-messages="loginForm.emailField.$error">
+                    <div ng-message="required">
+                        * Email address is required.
+                    </div>
+                    <div ng-message="email">
+                        * Email address is invalid.
+                    </div>
+                </div>
+            </md-input-container>
+
+            <!-- Password input field -->
+            <md-input-container>
+                <label>Password</label>
+                <input type="password" required
+                       name="passwordField"
+                       ng-model="login.password" />
+
+                <!-- Password error messages -->
+                <div ng-messages="loginForm.passwordField.$error">
+                    <div ng-message="required">* Password is required.</div>
+                </div>
+            </md-input-container>
+
+            <!-- Login button -->
+            <md-button class="md-raised md-primary"
+                       ng-click="login.login()"
+                       type="submit">Login</md-button>
+
+        </form>
+
+    </md-dialog-content>
+
+</md-dialog>

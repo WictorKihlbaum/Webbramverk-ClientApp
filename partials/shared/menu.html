@@ -1,0 +1,18 @@
+<md-toolbar ng-controller="Login as login"
+            layout="row"
+            layout-align="space-between center"
+            id="toolbar-menu">
+
+    <h1 id="toolbar-header">ClientApp</h1>
+
+    <md-button ng-click="login.openLoginDialog()"
+               ng-if="!login.isAuthed()"
+               class="md-raised"
+               id="login-button">Login user</md-button>
+
+    <md-button ng-click="login.logout()"
+               ng-if="login.isAuthed()"
+               class="md-raised"
+               id="logout-button">Logout</md-button>
+
+</md-toolbar>

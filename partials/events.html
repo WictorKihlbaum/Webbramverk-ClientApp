@@ -1,0 +1,175 @@
+
+<!-- Google Map -->
+<div ng-include src="'partials/google-map.html'"></div>
+
+<div id="events-container">
+
+    <div layout="row"
+         layout-align="space-between center"
+         id="events-time-panel">
+        <div>
+            Current time is
+            <span my-current-time="format"></span>
+        </div>
+
+        <div>
+            Last event added
+            <span am-time-ago="latestEventAdded"></span>
+        </div>
+    </div>
+
+    <div layout="row"
+         layout-align="space-between center"
+         id="events-list-panel">
+
+        <!-- Sort events by newest/oldest first -->
+        <md-radio-group ng-model="event.eventSortOption"
+                        ng-change="event.eventSortChange()"
+                        layout="row"
+                        id="sort-events-radiogroup">
+
+            <span id="sort-span">Sort events by</span>
+
+            <md-radio-button value="Newest">
+                Newest first
+            </md-radio-button>
+
+            <md-radio-button value="Oldest">
+                Oldest first
+            </md-radio-button>
+
+        </md-radio-group>
+
+        <!-- Create button for new Event -->
+        <md-button class="md-raised md-accent"
+                   id="create-event-button"
+                   ng-click="showCreateDialog()"
+                   ng-if="isAuthed()">
+            Create new event!
+        </md-button>
+    </div>
+
+    <!-- Events list -->
+    <md-list id="events-list" layout-align="center start">
+
+        <md-subheader class="md-no-sticky">
+
+            <span>Events list</span>
+
+            <!-- Show button/icon for Resource Help info -->
+            <md-icon class="md-secondary help-icon"
+                     ng-click="showHelp()"
+                     aria-label="Show help"
+                     md-svg-icon="helpIcon">
+
+                <!-- Shown when hover over icon -->
+                <md-tooltip md-direction="top">
+                    How do I handle below resources?
+                </md-tooltip>
+            </md-icon>
+
+            <!-- Show button/icon for getting ALL Events -->
+            <md-icon class="md-secondary help-icon"
+                     ng-click="event.getAllEvents()"
+                     aria-label="Get all events"
+                     md-svg-icon="renewIcon">
+
+                <!-- Shown when hover over icon -->
+                <md-tooltip md-direction="top">
+                    Show all events! (Reset the list)
+                </md-tooltip>
+            </md-icon>
+
+        </md-subheader>
+
+        <!-- List ALL Events -->
+        <md-list-item ng-repeat="e in events"
+                      ng-click="showEvent(e)">
+
+            <!-- Show button/icon for Event -->
+            <md-icon class="md-secondary"
+                     ng-click="showEvent(e)"
+                     aria-label="Show event"
+                     md-svg-icon="infoIcon">
+
+                <!-- Shown when hover over icon -->
+                <md-tooltip md-direction="top">
+                    Show event
+                </md-tooltip>
+            </md-icon>
+
+            <!-- Edit button/icon for Event -->
+            <md-icon class="md-secondary"
+                     ng-if="isAuthed() && belongsToCurrentUser(e)"
+                     ng-click="showEditDialog(e)"
+                     aria-label="Edit event"
+                     md-svg-icon="editIcon">
+
+                <!-- Shown when hover over icon -->
+                <md-tooltip md-direction="top">
+                    Edit event
+                </md-tooltip>
+            </md-icon>
+
+            <!-- Delete button/icon for Event -->
+            <md-icon class="md-secondary"
+                     ng-if="isAuthed() && belongsToCurrentUser(e)"
+                     ng-click="showDeleteDialog(e)"
+                     aria-label="Delete event"
+                     md-svg-icon="deleteIcon">
+
+                <!-- Shown when hover over icon -->
+                <md-tooltip md-direction="top">
+                    Delete event
+                </md-tooltip>
+            </md-icon>
+
+            <div class="event-child">
+                {{e.creator.name}}'s
+                {{ e.category }}
+            </div>
+
+        </md-list-item>
+    </md-list>
+</div>
+
+
+<!-- Search Methods Field -->
+<div id="choose-search-method"
+     class="search-methods" flex>
+
+    <h1 class="md-title"
+        id="search-methods-topic">
+        Search events by a specific method
+    </h1>
+
+    <md-input-container id="search-method-input">
+        <label>Search methods</label>
+
+        <md-select ng-model="selectedMethod"
+                   md-selected-text="getSelectedMethod()">
+
+            <md-optgroup label="methods">
+
+                <md-option ng-value="method"
+                           ng-repeat="method in searchMethods">
+                    {{method}}
+                </md-option>
+            </md-optgroup>
+        </md-select>
+    </md-input-container>
+</div>
+
+<!-- SEARCH METHODS PARTIALS -->
+
+<!-- Search Nearby Events -->
+<div ng-include src="'partials/search-methods/nearby.html'"
+     ng-if="selectedMethod.includes('nearby')"></div>
+
+<!-- Search Events by Tags -->
+<div ng-include src="'partials/search-methods/tags.html'"
+     ng-if="selectedMethod.includes('tags')"></div>
+
+<!-- Search Events by Parameters -->
+<div ng-include src="'partials/search-methods/params.html'"
+     ng-if="selectedMethod.includes('parameters')"></div>
