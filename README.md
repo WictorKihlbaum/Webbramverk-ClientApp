@@ -16,6 +16,6 @@ There are two different users you can login with in the application. Please use 
 
 **1.** Download the Zip-file and extract it.    
 **2.** Open the extracted folder with JetBrains WebStorm IDE (or other preferred IDE).    
-**3.** If you use WebStormSelect: Select "index.html" and press Run > Run 'index.html'.  
+**3.** If you use WebStorm: Select "index.html" and press Run > Run 'index.html'.  
 
 **Done! Start using the application locally.**
